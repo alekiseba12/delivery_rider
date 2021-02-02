@@ -271,8 +271,8 @@
 
         <div class="row g-3">
             <div class="col-sm-6">
-              <label for="lat" class="form-label">Latitude</label>
-              <input id="lat" type="text" class="form-control @error('lat') is-invalid @enderror" name="lat"  autocomplete="lat">
+              {{-- <label for="lat" class="form-label">Latitude</label> --}}
+              <input id="lat" type="hidden" class="form-control @error('lat') is-invalid @enderror" name="lat"  autocomplete="lat">
 
                                 @error('lat')
                                     <span class="invalid-feedback" role="alert">
@@ -285,8 +285,8 @@
             </div>
 
             <div class="col-sm-6">
-              <label for="longitude" class="form-label">Longitude</label>
-             <input id="longitude" type="text" class="form-control @error('longitude') is-invalid @enderror" name="longitude"  autocomplete="longitude">
+              {{-- <label for="longitude" class="form-label">Longitude</label> --}}
+             <input id="longitude" type="hidden" class="form-control @error('longitude') is-invalid @enderror" name="longitude"   autocomplete="longitude">
 
                                 @error('longitude')
                                     <span class="invalid-feedback" role="alert">
