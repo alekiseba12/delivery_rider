@@ -47,10 +47,10 @@ class DeliveryController extends Controller
 
         ]);
 
-        Session::flash('message', "Delivery Created Successfully.");
     
         $delivery = Delivery::create($data);
         if($delivery->exists){
+            Session::flash('message', "Delivery Created Successfully.");
             return Redirect::back();
         }
     }

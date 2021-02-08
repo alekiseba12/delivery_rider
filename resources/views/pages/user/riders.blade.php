@@ -15,9 +15,20 @@
    }
 
  </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
+
+<script>
+$(document).ready(function() {
+    $('button[id^="cancel"]').hide();
+}); 
+</script> 
+
 
   <!-- Navbar -->
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
@@ -106,6 +117,7 @@
         <div class="card-body pb-0">
           <div class="row d-flex align-items-stretch">
             @foreach($getRiders as $rider)
+
             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
               <div class="card bg-light">
                 <div class="card-body pt-0">
@@ -129,6 +141,11 @@
                 </div>
                 <div class="card-footer">
                   <div class="text-right">
+
+                
+                  
+
+
                     <a href="#" class="btn btn-sm bg-success">
                       Active
                     </a>
@@ -137,9 +154,13 @@
                        <div class="col">Duration: <span class="badge badge-info">{{$rider->duration}}</span></div>
                     </div>
 
-                    <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#requestId-{{$rider->id}}">
-                      <i class="fas fa-paper-plane"></i> Request
-                    </a>
+                    <button id="cancel-{{$rider->id}}" class="btn btn-sm btn-danger" onclick="$('#request-{{$rider->id}}').show(),$('#cancel-{{$rider->id}}').hide()">
+                      <i class="fas fa-paper-plane"></i> Cancel </button>
+
+                      <button id="request-{{$rider->id}}" class="btn btn-sm btn-primary" onclick="$('#cancel-{{$rider->id}}').show(), $('#request-{{$rider->id}}').hide()">
+                      <i class="fas fa-paper-plane"></i> Request </button>
+
+              
                   </div>
                 </div>
               </div>
